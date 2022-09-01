@@ -15,7 +15,7 @@ public class main {
         {
 			System.out.println(generatedNumber);
 			System.out.println(printNumber);
-            System.out.println("Enter 3 digit number"); 
+            System.out.println("Enter 3 digit number");
 
             try {
             	userInput = userSel.next();
@@ -24,19 +24,22 @@ public class main {
                 userSel.next();
             }
             
-            
-            for (int i = 0; i < generatedNumber.length(); i++) {
-            	printNumber.setCharAt(i, 'X');
-            	if (generatedNumber.charAt(i) == userInput.charAt(i)) {
-					printNumber.setCharAt(i, 'O');					
-				} else {
-					for (int j = 0; j < generatedNumber.length(); j++) {
-						if (generatedNumber.charAt(i) == userInput.charAt(j)) {
-							printNumber.setCharAt(j, '?');					
+            if (userInput.length() != 3)
+            	System.out.println("Enter 3 digits!");
+            else {
+	            for (int i = 0; i < generatedNumber.length(); i++) {
+	            	printNumber.setCharAt(i, 'X');
+	            	if (generatedNumber.charAt(i) == userInput.charAt(i)) {
+						printNumber.setCharAt(i, 'O');					
+					} else {
+						for (int j = 0; j < generatedNumber.length(); j++) {
+							if (generatedNumber.charAt(i) == userInput.charAt(j)) {
+								printNumber.setCharAt(j, '?');					
+							}
 						}
 					}
 				}
-			}
+            }
             
             if (printNumber.compareTo(win)==0) {
             	System.out.println("You found the number!");
